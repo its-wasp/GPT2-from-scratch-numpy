@@ -1,2 +1,5 @@
 numpy
 pytest
+tiktoken
+datasets
+tqdm
