@@ -10,6 +10,7 @@ checkpoints/
 *.npy
 .DS_Store
 data/
+runs/
 # local-only: tests, notes, and the starter reference are personal
 tests/
 NOTES.md
