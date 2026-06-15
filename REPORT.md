@@ -280,6 +280,6 @@ A natural next experiment, deferred to future work: a Kaggle T4 session (16 GB V
 
 Other limitations worth flagging:
 - No gradient accumulation, no bf16 activations, no kernel fusion. Throughput is 5-15× slower than equivalent PyTorch.
-- I chose not to use tinygrad (the assignment's bonus). NumPy + CuPy is cleaner for transparency: every line is plain Python, no kernel compiler in the loop.
+
 
 
