@@ -16,6 +16,7 @@ backend.DTYPE = backend.xp.float32
 
 from rmk.eval import compute_perplexity
 from rmk.model import GPT, GPTConfig
+from rmk.dca import DCAGPT
 from rmk.train import load_checkpoint
 
 
@@ -40,8 +41,9 @@ def main():
     with open(cfg_path) as f:
         full_cfg = json.load(f)
     model_cfg = GPTConfig(**full_cfg["model"])
-    print(f"model config: {model_cfg}")
-    model = GPT(model_cfg)
+    arch = full_cfg.get("arch", "GPT")
+    print(f"model config: {model_cfg}  arch: {arch}")
+    model = DCAGPT(model_cfg) if arch == "DCAGPT" else GPT(model_cfg)
     step = load_checkpoint(args.ckpt, model)
     print(f"loaded ckpt step {step}")
 

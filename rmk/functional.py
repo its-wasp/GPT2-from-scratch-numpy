@@ -4,6 +4,12 @@ from rmk.backend import xp
 from rmk.tensor import Tensor
 
 
+def relu(x):
+    
+    mask = (x.data > 0).astype(x.data.dtype)
+    return x * mask
+
+
 def gelu(x):
     """GELU activation, tanh approximation (GPT-2's form)."""
     c = xp.sqrt(2.0 / xp.pi)
